@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { promisify } from 'util';
 import User from '../models/User';
 
 class UserController {
@@ -45,23 +46,20 @@ class UserController {
       return res.status(400).json({ error: 'Validation fails.' });
     }
 
-    const { userId } = req;
-    // eslint-disable-next-line prefer-const
-    let user = await User.findById(userId);
+    const { userId } = req.params;
 
-    user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
-    user.role = req.body.role || user.role;
-    user.password = req.body.password || user.password;
+    const userToUpdate = await User.findById(userId);
+    if (!userToUpdate) {
+      return res.status(400).json({ error: 'User not found.' });
+    }
 
-    await user.save();
-
+    await userToUpdate.updateOne(req.body);
     return res.json();
   }
 
   async getAllUsers(req, res) {
     const users = await User.find();
-    return res.json({ users });
+    return res.json(users);
   }
 }
 
