@@ -38,7 +38,10 @@ class SessionController {
     const { name, role } = user;
 
     return res.send({
-      name, email, role, token,
+      name,
+      email,
+      role,
+      token,
     });
   }
 }
