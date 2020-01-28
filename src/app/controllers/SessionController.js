@@ -35,7 +35,11 @@ class SessionController {
       expiresIn: authConfig.expiresIn,
     });
 
-    return res.send({ user, token });
+    const { name, role } = user;
+
+    return res.send({
+      name, email, role, token,
+    });
   }
 }
 

@@ -14,12 +14,17 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    select: true,
+    select: false,
     required: true,
   },
   role: {
     type: String,
     required: false,
+  },
+  active: {
+    type: Boolean,
+    default: true,
+    required: true,
   },
   createdAt: {
     type: Date,
@@ -27,7 +32,7 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-UserSchema.pre('save', async (next) => {
+UserSchema.pre('save', async function (next) {
   const hash = await bcrypt.hash(this.password, 10);
 
   this.password = hash;
