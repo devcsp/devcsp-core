@@ -27,7 +27,7 @@ const JobSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: jobStatus.AVAILABLE,
+    default: jobStatus.WAITING_CONFIRMATION,
   },
   createdAt: {
     type: Date,
