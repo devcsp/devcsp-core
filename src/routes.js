@@ -9,10 +9,10 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 
 routes.post('/login', SessionController.store);
+routes.post('/user', handle(UserController.store));
 
 routes.use(authMiddleware);
 
-routes.post('/user', handle(UserController.store));
 routes.get('/user/all', handle(UserController.getAllUsers));
 routes.post('/user/:userId', handle(UserController.getById));
 routes.delete('/user/:userId', handle(UserController.delete));
