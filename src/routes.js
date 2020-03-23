@@ -16,7 +16,7 @@ routes.get('core/jobs', handle(JobController.getJobByStatus));
 routes.get('core/jobs/:jobId', handle(JobController.getJobById));
 routes.put('core/jobs/updateViews/:jobId', handle(JobController.updateJobViews));
 
-// routes.use(authMiddleware);
+routes.use(authMiddleware);
 
 routes.put('core/jobs/:jobId', handle(JobController.updateJob));
 
