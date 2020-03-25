@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
@@ -16,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Install dependencies
+      - name: Build project
         run: yarn build
 
       - name: Check tests
