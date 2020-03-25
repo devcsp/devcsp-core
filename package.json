@@ -4,11 +4,11 @@
   "description": "core from certificates and wewantyou",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "prod": "pm2 restart devcsp-core",
+    "test": "jest",
+    "lint": "lint-staged",
+    "start": "pm2 restart devcsp-core",
     "dev": "nodemon src/server.js --ignore __tests__",
     "build": "sucrase ./src -d ./dist --transforms imports",
-    "test": "jest"
   },
   "repository": {
     "type": "git",
