@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server.js",
+    "prod": "pm2 restart devcsp-core",
     "dev": "nodemon src/server.js --ignore __tests__",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "test": "jest"
@@ -39,8 +40,10 @@
     "express": "^4.17.1",
     "express-async-error": "0.0.2",
     "express-async-handler": "^1.1.4",
+    "global": "^4.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.10",
+    "pm2": "^4.2.3",
     "youch": "^2.0.10",
     "yup": "^0.28.0"
   },
