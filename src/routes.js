@@ -5,7 +5,7 @@ import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import JobController from './app/controllers/JobController';
 
-import authMiddleware from './app/middlewares/auth';
+// import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 
@@ -16,7 +16,7 @@ routes.get('/jobs', handle(JobController.getJobByStatus));
 routes.get('/jobs/:jobId', handle(JobController.getJobById));
 routes.put('/jobs/updateViews/:jobId', handle(JobController.updateJobViews));
 
-routes.use(authMiddleware);
+// routes.use(authMiddleware);
 
 routes.put('/jobs/:jobId', handle(JobController.updateJob));
 
