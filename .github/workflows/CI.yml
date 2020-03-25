@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Build project
-        run: yarn build
-
       - name: Check tests
         run: yarn test --coverage
 
