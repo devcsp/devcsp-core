@@ -1,4 +1,3 @@
- 
 name: CI
 
 on:
@@ -15,7 +14,10 @@ jobs:
           node-version: 12
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install
+
+      - name: Install dependencies
+        run: yarn build
 
       - name: Check tests
         run: yarn test --coverage
