@@ -18,7 +18,6 @@ routes.put('/jobs/updateViews/:jobId', handle(JobController.updateJobViews));
 
 routes.use(authMiddleware);
 
-
 routes.put('/jobs/:jobId', handle(JobController.updateJob));
 
 routes.post('/user', handle(UserController.store));
